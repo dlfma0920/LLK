@@ -29,7 +29,7 @@ public class HomeController {
 	public String home() {
 		
 		
-		return "signIn";
+		return "login";
 	}
 	
 	@RequestMapping(value="/employerSignInForm.do") // 회원가입 창으로 이동
@@ -47,7 +47,7 @@ public class HomeController {
 		 * 
 		 * //int result = EmployerDAO.employerUpdate(employerVO);
 		 */		
-		return "sdfl;askdfsl;dfk";
+		return "test";
 		
 	}
 	
