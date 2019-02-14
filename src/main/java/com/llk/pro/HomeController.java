@@ -66,12 +66,12 @@ public class HomeController {
 	public String SignTry(@ModelAttribute("employerVO") EmployerVO employerVO, Model model) throws SQLException {
 		EmployerVO vo = new EmployerVO();
 		vo = employerVO;
+		model.addAttribute("msg",vo.getBirth());
 		
 		
+		//int result = EmployerDAO.employerUpdate(employerVO);
 		
-		int result = EmployerDAO.employerUpdate(employerVO);
-		
-		return "login";
+		return "signIn";
 		
 	}
 	

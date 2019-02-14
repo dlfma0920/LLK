@@ -46,6 +46,13 @@
 		background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	}
   </style>
+  
+    <script>
+	function loginPage(){
+		window.location.href = '';
+	
+	}
+  </script>
 </head>
 
 <body id="page-top">
@@ -81,7 +88,7 @@
   <!-- submit Section -->
   <section class="bg-primary text-white mb-0" id="submit">
     <div class="container">
-    <form:form commandName="employerVO" action="signInTry.do" name="employerVO" method="post">
+    <form action="signInTry.do" name="employerVO" method="post">
       <h2 class="text-center text-uppercase text-white">Submit</h2>
       <hr class="star-light mb-5">
       <div class="text-center mt-4">
@@ -127,7 +134,7 @@
 		  </tr>
 
 		  <tr>
-			<td><p class = "a">Contry</p></td>
+			<td><p class = "a">Country</p></td>
 			<td> <input type="text" class = "form-control" name="country" placeholder="Enter contry"/></td>
 		  </tr>
 
@@ -143,8 +150,9 @@
 		</table> 
 	  <hr class="style-one">
         <input type="submit" class="btn btn-outline-light btn-sm" value = "Submit"/>
-        <input type="submit" class="btn btn-outline-light btn-sm" value = "Cencle"/>
-      </form:form>
+        <input type="button" class="btn btn-outline-light btn-sm" value = "Cencel" onclick="loginPage();"/>
+     	</div>
+     	</form>
     </div>
 
   </section>
