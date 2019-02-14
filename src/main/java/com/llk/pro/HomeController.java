@@ -37,6 +37,20 @@ public class HomeController {
 		return "signIn";
 	}
 	
+	
+	@RequestMapping(value="/signInTry.do", method = RequestMethod.POST)
+	public String SignInTry(/* @ModelAttribute("employerVO") EmployerVO employerVO, Model model */) throws SQLException {
+		/*
+		 * EmployerVO vo = new EmployerVO(); vo = employerVO;
+		 * model.addAttribute("msg",vo.getBirth());
+		 * 
+		 * 
+		 * //int result = EmployerDAO.employerUpdate(employerVO);
+		 */		
+		return "sdfl;askdfsl;dfk";
+		
+	}
+	
 	@RequestMapping(value="/loginTry.do",method= RequestMethod.POST) public String loginTry(@RequestParam("id") String id,@RequestParam("pwd") String pwd, Model model) {
 		//로그인 처리
 		EmployerVO vo = new EmployerVO();
@@ -62,17 +76,6 @@ public class HomeController {
 		return "";
 	}
 	
-	@RequestMapping(value="/signInTry.do")
-	public String SignTry(@ModelAttribute("employerVO") EmployerVO employerVO, Model model) throws SQLException {
-		EmployerVO vo = new EmployerVO();
-		vo = employerVO;
-		model.addAttribute("msg",vo.getBirth());
-		
-		
-		//int result = EmployerDAO.employerUpdate(employerVO);
-		
-		return "signIn";
-		
-	}
+
 	
 }

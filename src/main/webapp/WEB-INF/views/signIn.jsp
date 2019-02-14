@@ -88,7 +88,7 @@
   <!-- submit Section -->
   <section class="bg-primary text-white mb-0" id="submit">
     <div class="container">
-    <form action="signInTry.do" name="employerVO" method="post">
+    <form action="signInTry.do" method="post">
       <h2 class="text-center text-uppercase text-white">Submit</h2>
       <hr class="star-light mb-5">
       <div class="text-center mt-4">
