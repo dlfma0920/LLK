@@ -29,7 +29,7 @@ public class HomeController {
 	public String home() {
 		
 		
-		return "login";
+		return "signIn";
 	}
 	
 	@RequestMapping(value="/employerSignInForm.do") // 회원가입 창으로 이동
