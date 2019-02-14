@@ -15,8 +15,8 @@ public class EmployerDAO {
 
 	String driver = "oracle.jdbc.driver.OracleDriver";
 	static String url = "jdbc:oracle:thin:@localhost:1521:ORCL";
-	private static final String user = "lcj225";
-	private static final String passwd = "sky58062";
+	private static final String user = "system";
+	private static final String passwd = "Lbi#1017";
 
 	public EmployerDAO() {
 		try {
