@@ -1,6 +1,7 @@
 package com.llk.pro;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.llk.pro.dao.EmployerDAO;
+import com.llk.pro.dao.JobInfoDAO;
 import com.llk.pro.vo.EmployerVO;
+import com.llk.pro.vo.JobinfoVO;
 
 /**
  * Handles requests for the application home page.
@@ -21,6 +24,7 @@ import com.llk.pro.vo.EmployerVO;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -54,12 +58,15 @@ public class HomeController {
 	public String loginTry(@RequestParam("id") String id, @RequestParam("pwd") String pwd, Model model) {
 		// 로그인 처리
 		EmployerVO vo = new EmployerVO();
+		ArrayList<JobinfoVO> list = new ArrayList<JobinfoVO>();
 		String str = "";
 		vo.setId(id);
 		vo.setPwd(pwd);
 
 		int result = EmployerDAO.loginCheck(vo); // 로그인 체크
 		if (result == 1) { // 로그인 성공했을 시
+			list = JobInfoDAO.JobInfoList();
+			model.addAttribute("list",list);
 			return "main";
 		} else if (result == 0) { // 아이디는 일치하고 비밀번호는 일치하지 않을 때
 			str = "비밀번호가 틀렸습니다.";
