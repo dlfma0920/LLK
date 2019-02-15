@@ -3,6 +3,8 @@ package com.llk.pro;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -40,6 +42,21 @@ public class HomeController {
 			throws Exception {
 		return "signIn";
 	}
+	
+	@RequestMapping(value = "/myPage.do") // 마이페이지 창으로 이동
+	public String myPage()
+			throws Exception {
+		return "myPage";
+	}
+	
+	@RequestMapping(value = "/jobinfoList.do") // 기업정보 창으로 이동
+	public String jobInfoList(Model model)
+			throws Exception {
+		ArrayList<JobinfoVO> list = new ArrayList<JobinfoVO>();
+		list = JobInfoDAO.JobInfoList();
+		model.addAttribute("list",list);
+		return "main";
+	}
 
 	@RequestMapping(value = "/signInTry.do", method = RequestMethod.POST)
 	public String SignInTry(@ModelAttribute("employerVO") EmployerVO employerVO, Model model) throws SQLException {
@@ -55,7 +72,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/loginTry.do", method = RequestMethod.POST)
-	public String loginTry(@RequestParam("id") String id, @RequestParam("pwd") String pwd, Model model) {
+	public String loginTry(@RequestParam("id") String id, @RequestParam("pwd") String pwd, Model model,HttpSession session) {
 		// 로그인 처리
 		EmployerVO vo = new EmployerVO();
 		ArrayList<JobinfoVO> list = new ArrayList<JobinfoVO>();
@@ -67,6 +84,8 @@ public class HomeController {
 		if (result == 1) { // 로그인 성공했을 시
 			list = JobInfoDAO.JobInfoList();
 			model.addAttribute("list",list);
+			session.setAttribute("session",id);
+			
 			return "main";
 		} else if (result == 0) { // 아이디는 일치하고 비밀번호는 일치하지 않을 때
 			str = "비밀번호가 틀렸습니다.";
