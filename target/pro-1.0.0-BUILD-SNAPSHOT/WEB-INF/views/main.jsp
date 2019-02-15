@@ -96,7 +96,7 @@
           </div>
           
 		           <!-- Portfolio Modal 1 -->
-		    <div class="portfolio-modal mfp-hide" id="1">
+		    <div class="portfolio-modal mfp-hide" id="${job.ccode}">
 		      <div class="portfolio-modal-dialog bg-white">
 		        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
 		          <i class="fa fa-3x fa-times"></i>

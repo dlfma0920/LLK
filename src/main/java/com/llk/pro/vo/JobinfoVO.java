@@ -12,7 +12,7 @@ public class JobinfoVO {
  private String cwlocation;
  private String ctime;
  private int cbonus;
- private int csaraly;
+ private int csalary;
  private String calse;
 public int getCcode() {
 	return ccode;
@@ -80,11 +80,12 @@ public int getCbonus() {
 public void setCbonus(int cbonus) {
 	this.cbonus = cbonus;
 }
-public int getCsaraly() {
-	return csaraly;
+
+public int getCsalary() {
+	return csalary;
 }
-public void setCsaraly(int csaraly) {
-	this.csaraly = csaraly;
+public void setCsalary(int csalary) {
+	this.csalary = csalary;
 }
 public String getCalse() {
 	return calse;
