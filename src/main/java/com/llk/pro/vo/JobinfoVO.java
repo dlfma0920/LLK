@@ -14,6 +14,13 @@ public class JobinfoVO {
  private int cbonus;
  private int csalary;
  private String calse;
+ private String picture;
+public String getPicture() {
+	return picture;
+}
+public void setPicture(String picture) {
+	this.picture = picture;
+}
 public int getCcode() {
 	return ccode;
 }

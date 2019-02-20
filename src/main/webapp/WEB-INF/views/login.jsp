@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 
 <head>
 
@@ -53,7 +54,7 @@
 </head>
 
 <body id="page-top">
-
+	
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
@@ -93,7 +94,7 @@
       
     <div class="text-center mt-4">
 
-  <form method="post" action="loginTry.do" id="loginForm" > <!-- ·Î±×ÀÎ Á¤º¸ ÀÔ·Â Æû -->
+  <form method="post" action="loginTry.do" id="loginForm" > <!-- Â·ÃŽÂ±Ã—Ã€ÃŽ ÃÂ¤ÂºÂ¸ Ã€Ã”Â·Ã‚ Ã†Ã» -->
     <table style="margin:0 auto;text-align:center;" class = "table table-bordered table-dark">
        <tr>
           <td><p>ID</p></td>
@@ -112,34 +113,8 @@
       </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h4 class="text-uppercase mb-4">Lee Donggeon</h4>
-          <p class="lead mb-0">ChunBuk University
-            <br>Software</p>
-        </div>
-        <div class="col-md-4">
-          <h4 class="text-uppercase mb-4">Lee Chanjoo</h4>
-          <p class="lead mb-0">ChunBuk University
-            <br>Software</p>
-        </div>
-        <div class="col-md-4">
-          <h4 class="text-uppercase mb-4">Gang Gyumin</h4>
-          <p class="lead mb-0">ChunBuk University
-            <br>International Management</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <div class="copyright py-4 text-center text-white">
-    <div class="container">
-      <small>Copyright &copy; Your Website 2019</small>
-    </div>
-  </div>
+
 
   <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
   <div class="scroll-to-top position-fixed ">
@@ -162,7 +137,7 @@
 
   <!-- Custom scripts for this template -->
   <script src="resources/js/freelancer.min.js"></script>
-  
+  <c:import url="footer.jsp" /> 
 </body>
 
 </html>

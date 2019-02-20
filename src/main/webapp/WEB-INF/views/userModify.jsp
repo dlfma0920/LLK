@@ -30,7 +30,7 @@
   <style>
   	p {
   		font-family: 'Oswald', sans-serif;
-  		font-size : 20px;
+  		font-size : 15px;
   	}
   	p.a{
   		color : black;
@@ -48,32 +48,17 @@
   </style>
   
     <script>
-	function loginPage(){
-		window.location.href = '';
+	function myPage(){
+		window.location.href = 'myPage.do';
 	
 	}
   </script>
 </head>
 
 <body id="page-top">
+	<c:import url="Navigation.jsp" /> 
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Welcome new user!</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#submit">Submit</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
 
   <!-- Header -->
   <header class="masthead bg-primary text-white text-center">
@@ -90,30 +75,30 @@
   <!-- submit Section -->
   <section class="bg-primary text-white mb-0" id="submit">
     <div class="container">
-    <form action="signInTry.do" method="post">
-      <h2 class="text-center text-uppercase text-white">Submit</h2>
+    <form action="userModifyTry.do" method="post">
+      <h2 class="text-center text-uppercase text-white">회원정보 수정</h2>
       <hr class="star-light mb-5">
       <div class="text-center mt-4">
  
 	    <table style="margin:auto auto; text-align:center; vertical-align:middle;" class = "table table-bordered table-light">
 		  <tr>
 			<td><p class = "a">Id</p></td>
-			<td> <input type="text" class = "form-control" id=id name="id" placeholder="Enter id"></td>
+			<td> <input type="text" class = "form-control" id=id name="id" value=${id} readonly></td>
 		  </tr>
 		  
 		  <tr>
 			<td><p class = "a">Password</p></td>
-			<td> <input type="password" class = "form-control" id=pwd name="pwd" placeholder="Enter password"/></td>
+			<td> <input type="password" class = "form-control" id=pwd name="pwd" value=${pwd}></td>
 		  </tr>
 
 		  <tr>
 			<td><p class = "a">Name</p></td>
-			<td> <input type="text" class = "form-control" id= name name="name" placeholder="Enter name"/></td>
+			<td> <input type="text" class = "form-control" id= name name="name" value=${name}></td>
 		  </tr>
 
 		  <tr>
 			<td><p class = "a">Birth</p></td>
-			<td> <input type="text" class = "form-control" id= birth name="birth" placeholder="Enter birthday"/></td>
+			<td> <input type="text" class = "form-control" id= birth name="birth" value=${birth}></td>
 		  </tr>
 
 		  <tr>
@@ -127,17 +112,17 @@
 
 		  <tr>
 			<td><p class = "a">E-mail</p></td>
-			<td> <input type="email" class = "form-control" id= email name="email" placeholder="Enter email"/></td>
+			<td> <input type="email" class = "form-control" id= email name="email" value=${email}></td>
 		  </tr>
 
 		  <tr>
 			<td><p class = "a">Phone</p></td>
-			<td> <input type="text" class = "form-control" id=phone name="phone" placeholder="Enter phonenumber"/></td>
+			<td> <input type="text" class = "form-control" id=phone name="phone" value=${phone}></td>
 		  </tr>
 
 		  <tr>
 			<td><p class = "a">Country</p></td>
-			<td> <input type="text" class = "form-control" id=country name="country" placeholder="Enter contry"/></td>
+			<td> <input type="text" class = "form-control" id=country name="country" value=${country}></td>
 		  </tr>
 
 		  <tr>
@@ -151,8 +136,8 @@
 		  </tr>
 		</table> 
 	  <hr class="style-one">
-        <input type="submit" class="btn btn-outline-light btn-sm" value = "Submit"/>
-        <input type="button" class="btn btn-outline-light btn-sm" value = "Cencel" onclick="loginPage();"/>
+        <input type="submit" class="btn btn-outline-light btn-sm" value = "Modify"/>
+        <input type="button" class="btn btn-outline-light btn-sm" value = "Cencel" onclick="myPage();"/>
      	</div>
      	</form>
     </div>

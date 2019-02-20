@@ -55,6 +55,7 @@ public class JobInfoDAO {
 				vo.setCtime(rs.getString("ctime"));
 				vo.setCsalary(rs.getInt("csalary"));
 				vo.setCalse(rs.getString("calse"));
+				vo.setPicture(rs.getString("picture"));
 				
 				System.out.println(rs.getString("ctitle"));
 				list.add(vo);

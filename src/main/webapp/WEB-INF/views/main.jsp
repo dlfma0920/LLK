@@ -52,7 +52,7 @@
              	<c:out value="${job.ctitle}"/>
              	
              
-             	<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/portfolio/cabin.png" alt="">
+             	<img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/portfolio/${job.picture}" alt="">
             </a>
           </div>
           
@@ -67,7 +67,7 @@
 		            <div class="col-lg-8 mx-auto">
 		              <h2 class="text-secondary text-uppercase mb-0"><c:out value="${job.ctitle}"/></h2>
 		              <hr class="star-dark mb-5">
-		              <img class="img-fluid mb-5" src="${pageContext.request.contextPath}/resources/img/portfolio/cabin.png" alt="">
+		              <img class="img-fluid" src="${pageContext.request.contextPath}/resources/img/portfolio/${job.picture}" alt="">
 		              <table border=1>
 		              <tr>
 		              <td>기업명 : </td>
@@ -109,6 +109,8 @@
 		              </tr>
 		              </table>
 		            
+		            
+		              
 		              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
 		                <i class="fa fa-close"></i>
 		                Close Project</a>

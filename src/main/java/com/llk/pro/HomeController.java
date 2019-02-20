@@ -3,6 +3,7 @@ package com.llk.pro;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -36,10 +37,17 @@ public class HomeController {
 
 		return "login";
 	}
+	
+	@RequestMapping(value = "/logout.do")
+	public String logout() {
+
+		return "login";
+	}
 
 	@RequestMapping(value = "/employerSignInForm.do") // 회원가입 창으로 이동
 	public String employerSignInForm(@ModelAttribute("employerVO") EmployerVO employerVO, Model model)
 			throws Exception {
+		
 		return "signIn";
 	}
 	
@@ -57,8 +65,36 @@ public class HomeController {
 		model.addAttribute("list",list);
 		return "main";
 	}
+	
+	@RequestMapping(value = "/modifyUserPage.do") // 회원 정보 수정 창으로 이동
+	public String modifyUserPage(HttpServletRequest request,Model model)
+			throws Exception {
+		String a = request.getParameter("id");
+		
+		EmployerVO vo = EmployerDAO.UserData(a);
+		model.addAttribute("id",vo.getId());
+		model.addAttribute("pwd",vo.getPwd());
+		model.addAttribute("name",vo.getName());
+		model.addAttribute("birth",vo.getBirth());
+		model.addAttribute("sex",vo.getSex());
+		model.addAttribute("email",vo.getEmail());
+		model.addAttribute("country",vo.getCountry());
+		model.addAttribute("flag",vo.getFlag());
+		model.addAttribute("phone",vo.getPhone());
+		return "userModify";
+	}
+	
+	@RequestMapping(value = "/deleteUserPage.do") // 회원탈퇴 창으로 이동
+	public String deleteUserPage(HttpServletRequest request,Model model)
+			throws Exception {
+		
+		
+		return "userDelete";
+	}
+	
+	
 
-	@RequestMapping(value = "/signInTry.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/signInTry.do", method = RequestMethod.POST) // 회원가입 처리
 	public String SignInTry(@ModelAttribute("employerVO") EmployerVO employerVO, Model model) throws SQLException {
 
 		EmployerVO vo = new EmployerVO();
@@ -71,7 +107,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = "/loginTry.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginTry.do", method = RequestMethod.POST) // 로그인 처리
 	public String loginTry(@RequestParam("id") String id, @RequestParam("pwd") String pwd, Model model,HttpSession session) {
 		// 로그인 처리
 		EmployerVO vo = new EmployerVO();
@@ -99,5 +135,30 @@ public class HomeController {
 
 		return "";
 	}
+	
+	@RequestMapping(value = "/userModifyTry.do", method = RequestMethod.POST) // 회원가입 처리
+	public String userModifyTry(@ModelAttribute("employerVO") EmployerVO employerVO, Model model) throws SQLException {
 
+		EmployerVO vo = new EmployerVO();
+		vo = employerVO;
+		
+		EmployerDAO.employerModify(vo);
+		model.addAttribute("msg","정보 수정이 완료 되었습니다.");
+		
+		return "myPage";
+
+	}
+	
+	@RequestMapping(value = "/deleteUserTry.do") // 회원가입 처리
+	public String userDeleteTry(HttpServletRequest request,Model model) throws SQLException {
+
+		String a = request.getParameter("id");
+		
+		EmployerDAO.employerDelete(a);
+		model.addAttribute("msg","정보 삭제가 완료 되었습니다.");
+		
+		return "login";
+
+	}
+	
 }
