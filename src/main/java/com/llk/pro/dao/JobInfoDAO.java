@@ -52,6 +52,7 @@ public class JobInfoDAO {
 				vo.setCnum(rs.getInt("cnum"));
 				vo.setClocation(rs.getString("clocation"));
 				vo.setCposition(rs.getString("cposition"));
+				vo.setCwlocation(rs.getString("cwlocation"));
 				vo.setCtime(rs.getString("ctime"));
 				vo.setCsalary(rs.getInt("csalary"));
 				vo.setCalse(rs.getString("calse"));

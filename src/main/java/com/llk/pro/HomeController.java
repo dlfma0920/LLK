@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.llk.pro.dao.BoardDAO;
 import com.llk.pro.dao.EmployerDAO;
 import com.llk.pro.dao.JobInfoDAO;
+import com.llk.pro.vo.BoardVO;
 import com.llk.pro.vo.EmployerVO;
 import com.llk.pro.vo.JobinfoVO;
 
@@ -39,10 +42,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/logout.do")
-	public String logout() {
+	public String logout(HttpSession session) {
+		if(session != null) {
+			session.invalidate();
+		}
 
 		return "login";
 	}
+		
+	@RequestMapping(value = "/insertresume.do")
+	public String insertResume() {
+
+		return "insertResumePage";
+	}
+		
 
 	@RequestMapping(value = "/employerSignInForm.do") // 회원가입 창으로 이동
 	public String employerSignInForm(@ModelAttribute("employerVO") EmployerVO employerVO, Model model)
@@ -52,8 +65,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/myPage.do") // 마이페이지 창으로 이동
-	public String myPage()
+	public String myPage(HttpServletRequest request,Model model)
 			throws Exception {
+		
+		String a = request.getParameter("id");
+		
+		EmployerVO vo = EmployerDAO.UserData(a);
+		model.addAttribute("vo",vo);
 		return "myPage";
 	}
 	
@@ -65,6 +83,39 @@ public class HomeController {
 		model.addAttribute("list",list);
 		return "main";
 	}
+	
+	@RequestMapping(value = "/board.do") // 자유게시판으로 이동
+	public String board(Model model)
+			throws Exception {
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		list = BoardDAO.BoardList();
+		model.addAttribute("list",list);
+		return "boardPage";
+	}
+	
+	@RequestMapping(value = "/detailBoard.do") // 게시글 상세보기 페이지로 이동
+	public String detailBoard(Model model,HttpServletRequest request)
+			throws Exception {
+		String a = request.getParameter("bcode");
+		BoardVO detail = new BoardVO();
+		detail = BoardDAO.BoardDetailList(a);
+		model.addAttribute("detail",detail);
+		return "boardDetailPage";
+	}
+	
+	@RequestMapping(value = "/boardModify.do") // 게시글 상세보기 페이지로 이동
+	public String boardModify(Model model,HttpServletRequest request)
+			throws Exception {
+		String a = request.getParameter("bcode");
+		BoardVO detail = new BoardVO();
+		detail = BoardDAO.BoardDetailList(a);
+		model.addAttribute("detail",detail);
+		return "boardModifyPage";
+	}
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/modifyUserPage.do") // 회원 정보 수정 창으로 이동
 	public String modifyUserPage(HttpServletRequest request,Model model)
@@ -120,7 +171,8 @@ public class HomeController {
 		if (result == 1) { // 로그인 성공했을 시
 			list = JobInfoDAO.JobInfoList();
 			model.addAttribute("list",list);
-			session.setAttribute("session",id);
+			EmployerVO myData = EmployerDAO.UserData(id);
+			session.setAttribute("session",myData);
 			
 			return "main";
 		} else if (result == 0) { // 아이디는 일치하고 비밀번호는 일치하지 않을 때
@@ -141,11 +193,11 @@ public class HomeController {
 
 		EmployerVO vo = new EmployerVO();
 		vo = employerVO;
-		
+		System.out.println(vo.getName());
 		EmployerDAO.employerModify(vo);
 		model.addAttribute("msg","정보 수정이 완료 되었습니다.");
 		
-		return "myPage";
+		return  "redirect:/myPage.do?id="+vo.getId();
 
 	}
 	
@@ -160,5 +212,19 @@ public class HomeController {
 		return "login";
 
 	}
-	
+	@RequestMapping(value = "/boardModifyTry.do", method = RequestMethod.POST) // 회원가입 처리
+	public String boardModifyTry(@ModelAttribute("boardVO") BoardVO boardVO, Model model) throws SQLException {
+
+		BoardVO vo = new BoardVO();
+		vo = boardVO;
+		System.out.println(vo.getBcode());
+		BoardDAO.boardModify(vo);
+		model.addAttribute("msg","정보 수정이 완료 되었습니다.");
+		ArrayList<BoardVO> list = new ArrayList<BoardVO>();
+		list = BoardDAO.BoardList();
+		model.addAttribute("list",list);
+		return "boardPage";
+
+	}
+
 }
