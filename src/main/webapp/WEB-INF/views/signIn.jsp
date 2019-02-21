@@ -62,7 +62,7 @@ hr.style-one {
 
 <script>
    function loginPage() {
-      window.location.href = '';
+	  window.location.href = "";
 
    }
 </script>
@@ -189,9 +189,12 @@ hr.style-one {
                </table>
                <hr class="style-one">
                <input type="submit" class="btn btn-outline-light btn-sm"
-                  value="Submit" /> <input type="button"
-                  class="btn btn-outline-light btn-sm" value="Cencel"
-                  onclick="loginPage();" />
+                  value="Submit" /> 
+                  
+                  <a href="logout.do">
+                  <input type="button"
+                  class="btn btn-outline-light btn-sm" value="Cancel" />
+                  </a>
             </div>
          </form>
       </div>

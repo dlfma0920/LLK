@@ -44,7 +44,12 @@
 		background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	}
   </style>
-  
+  <script type="text/javascript"> 
+		if("${msg}" != ""){ //로그인 실패시 메세지를 출력 하는 부분
+		alert("${msg}");
+		"${msg}" = "";
+	}
+	</script>
   <script>
 	function signIn(){
 		window.location.href = 'employerSignInForm.do';
@@ -82,7 +87,7 @@
       <img class="img-fluid mb-5 d-block mx-auto" src="resources/img/img.png" alt="">
       <h1 class="text-uppercase mb-0">Welcome to LLK</h1>
       <hr class="star-light">
-      <h2 class="font-weight-light mb-0">if you are not have id, push the submit!</h2>
+      <h2 class="font-weight-light mb-0">if you are not have id, push the submit!<br> ${msg} </h2>
     </div>
   </header>
 

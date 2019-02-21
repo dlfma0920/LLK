@@ -106,21 +106,30 @@ public class BoardDAO {
 	}
 
 	public static void boardModify(BoardVO vo) {
-		String sql = "update  board set bcode=?,bid=?,btitle=?,bnote=? where bid=?";
+		String sql = "update  board set bcode=?,bid=?,btitle=?,bnote=? where bcode=?";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		try {
 			con = DriverManager.getConnection(url, user, passwd);
+			System.out.println(vo.getBcode());
+			System.out.println(vo.getBid());
+			System.out.println(vo.getBtitle());
+			System.out.println(vo.getBnote());
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setInt(1, vo.getBcode());
+			
 			pstmt.setString(2, vo.getBid());
+		
 			pstmt.setString(3, vo.getBtitle());
+		
 			pstmt.setString(4, vo.getBnote());
+	
 			pstmt.setInt(5, vo.getBcode());
-			
+	
 			pstmt.executeUpdate();
-			
+
 
 		} catch (SQLException e) {
 			System.out.println("error");

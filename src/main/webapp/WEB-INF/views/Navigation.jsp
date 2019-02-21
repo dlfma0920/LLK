@@ -1,60 +1,132 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
+
     pageEncoding="EUC-KR"%>
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <meta charset="EUC-KR">
 
+ 
+
    <!-- Bootstrap core CSS -->
-    
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Do+Hyeon" rel="stylesheet">
-    <!-- Custom fonts for this template -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Sunflower:300|Oswald|Black+Han+Sans|Do+Hyeon" rel="stylesheet">
+
+      <!-- Custom fonts for this template -->
+
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+ 
+
+    
+
+ 
 
     <!-- Plugin CSS -->
 
+ 
+
       <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor/magnific-popup/magnific-popup.css">
+
    
 
+ 
+
     <!-- Custom styles for this template -->
+
       <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/freelancer.min.css">
+
       
+
       
+
+ 
 
 <style>
 
+ 
+
 p {
+
    font-family: 'Do Hyeon', sans-serif;
+
    font-size: 16px;
+
    color: #555555;
+
 }
+
 p.table{
+
    font-family: 'Black Han Sans', sans-serif;
+
 }
+
+p.board{
+
+	font-family: 'Sunflower';
+
+	color:#ffffff;
+
+	font-size: 20px;
+
+}
+
 p.warning{
+
    font-size: 40px;
+
    color: #ff0000;
+
 }p.warningbutton{
+
    font-size: 20px;
+
    color: #ffffff;
+
 }
+
+p.foot {
+
+  	font-family: 'Oswald', sans-serif;
+
+  	font-size : 20px;
+
+  	color : #ffffff;
+
+}
+
 hr.style-one {
+
    border: 0;
+
    height: 1px;
+
    background: #333;
+
    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+
    background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+
    background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+
    background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+
 }
-.back{
-background-image: url("resources/img/back.jpg");
-}
+
+ 
 
 </style>
 
@@ -65,7 +137,7 @@ background-image: url("resources/img/back.jpg");
    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">잡 서포팅 시스템${sessionScope.session.id}</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">잡 서포팅 시스템&nbsp${sessionScope.session.name}</a>
        
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu

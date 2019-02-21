@@ -31,7 +31,7 @@
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
        				<div>
-       				<form action="boardModifyTry.do" method="post">
+       				<form action="boardModifyTry.do" method="post" accept-charset="UTF-8">
        				<input type="hidden" id="bcode" name="bcode" value='${detail.bcode}'>
 		            <table style="margin-left: auto; margin-right: auto;">
 		           

@@ -14,22 +14,24 @@
       <div class="row">
         <div class="col-md-4">
           <h4 class="text-uppercase mb-4">Lee Donggeon</h4>
-          <p class="lead mb-0">ChunBuk University
+          <p class="foot">ChunBuk University
             <br>Software</p>
         </div>
         <div class="col-md-4">
           <h4 class="text-uppercase mb-4">Lee Chanjoo</h4>
-          <p class="lead mb-0">ChunBuk University
+          <p class="foot">ChunBuk University
             <br>Software</p>
         </div>
         <div class="col-md-4">
           <h4 class="text-uppercase mb-4">Gang Gyumin</h4>
-          <p class="lead mb-0">ChunBuk University
+          <p class="foot">ChunBuk University
             <br>International Management</p>
         </div>
       </div>
     </div>
   </footer>
+  
+  
 
 </body>
 </html>

@@ -70,20 +70,20 @@ hr.style-one {
                
                
                <tr>
-                  <td><p>${sessionScope.session.id}</p></td>
+                  <td>아이디></td><td><p>${sessionScope.session.id}</p></td>
                   <td><p></p></td>
                </tr>
 
                <tr>
-                  <td><p>${sessionScope.session.name}</p></td>
+                  <td>이름></td><td><p>${sessionScope.session.name}</p></td>
                   <td><p></p></td>
                </tr>
                <tr>
-                  <td><p>${sessionScope.session.email}</p></td>
+                  <td>이메일></td><td><p>${sessionScope.session.email}</p></td>
                   <td><p></p></td>
                </tr>
                <tr>
-                  <td><p>${sessionScope.session.phone}</p></td>
+                  <td>H.P></td><td><p>${sessionScope.session.phone}</p></td>
                   <td><p></p></td>
                </tr>
               
@@ -92,6 +92,8 @@ hr.style-one {
          </div>
       </div>
    </div>
+   
+   
    <c:import url="footer.jsp" />
 </body>
 </html>

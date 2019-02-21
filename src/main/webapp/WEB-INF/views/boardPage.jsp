@@ -1,61 +1,60 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+   pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
- <style>
-  	p {
-  		font-family: 'Oswald', sans-serif;
-  		font-size : 20px;
-  	}
-  	p.a{
-  		color : black;
-  	}
-  	
-	hr.style-one {
-		border: 0;
-		height: 1px;
-		background: #333;
-		background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
-		background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
-		background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
-		background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
-	}
-  </style>
 <body id="page-top">
-	<c:import url="Navigation.jsp" /> 
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <c:import url="Navigation.jsp" />
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
 
-       				<div>
-		            <table border=1 style="margin-left: auto; margin-right: auto;">
-		           
-		            <tr>
-		            <td>게시글번호</td> 
-		            <td>제목</td> 
-		            <td>작성자</td>
-		            </tr>
-		            <c:forEach var="board" items="${list}">
-		            <tr>
-		            <td>${board.bcode}</td>
-		            <td><a href="detailBoard.do?bcode=${board.bcode}">${board.btitle}</a></td>
-		            <td>${board.bid}</td>
-		            </tr>
-		            
-		            
-		            </c:forEach>  
-		           
-		            
-		            </table>		            
-		             </div>
-		        
-       	
-       
 
-	<c:import url="footer.jsp" /> 
+   <div class="container">
+      <div class="row align-items-end">
+         <table
+            style="margin: auto auto; text-align: center; vertical-align: middle;"
+            class="table table-bordered table-light">
+
+            <thead class = "thead-dark">
+            <tr>
+               <th style="width:10%"><p class = "board">번호</p></th>
+               <th><p class = "board">제목</p></th>
+               <th style="width:10%"><p class = "board">작성자</p></th>
+            </tr>
+            </thead>
+            <c:forEach var="board" items="${list}">
+               <tr>
+                  <td><p style = "font-size : 20px">${board.bcode}</p></td>
+                  <td><p style = "font-size : 20px"><a href="detailBoard.do?bcode=${board.bcode}">${board.btitle}</a></p></td>
+                  <td><p style = "font-size : 20px">${board.bid}</p></td>
+               </tr>
+
+
+            </c:forEach>
+
+
+         </table>
+      </div>
+   </div>
+<br>
+<br>
+<br>
+<br>
+
+
+
+   <c:import url="footer.jsp" />
 </body>
 
 </html>
